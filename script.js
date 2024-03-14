@@ -1,6 +1,21 @@
 function getComputerChoice() {
+    let compChoice = "";
     // automatically generate computer choice numerically(?)
+    let compNum = Math.random() * (3 - 0) + 0;
     // associate that to Rock, Paper or Scissors
+    if (compNum === 0 ) {
+        compChoice === "Rock";
+        return compChoice
+    } else if (compNum === 1) {
+        compChoice === "Paper";
+        return compChoice
+    } else if (compNum === 2) {
+        compChoice === "Scissors";
+        return compChoice
+    } else {
+        console.log("Error, please reset program");
+        return compChoice
+    }
     // return random choice
 }
 
