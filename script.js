@@ -21,7 +21,11 @@ function playRound(userInput) {
     // convert user input into lower case
     let computerInput = getComputerChoice();
     // run getComputerChoice()
-
+    if (computerInput === userInput) {
+        return "It's a Tie!"
+    } else if (computerInput === "rock" && userInput === "paper") {
+        return "You Win, " + userInput + " beats " + computerInput
+    }
     // check userInput against computerChoice()
         // check if input is a string / either rock, paper or scissors
             //if not then return "Wrong input! Please choose rock, paper or scissors!"
