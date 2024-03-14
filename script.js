@@ -1,26 +1,22 @@
 function getComputerChoice() {
     let compChoice = "";
-    let compNum = Math.random() * (3 - 0) + 0;
-    console.log(compNum);
+    let compNum = Math.floor(Math.random() * (3 - 0)) + 0;
     if (compNum === 0 ) {
-        compChoice === "rock";
+        compChoice = "rock";
         return compChoice
     } else if (compNum === 1) {
-        compChoice === "paper";
+        compChoice = "paper";
         return compChoice
     } else if (compNum === 2) {
-        compChoice === "scissors";
+        compChoice = "scissors";
         return compChoice
     } else {
-        console.log(compChoice);
-        return compChoice
+        return "Error, please reset program"
     }
 }
 
-console.log(getComputerChoice())
-/*
 function playRound(input) {
-    if (typeof input == 'string') {
+    if (typeof input === 'string') {
        let userInput = input.toLowerCase()
     } else {
         return "Invalid input, please type either Rock, Paper or Scissors!"
@@ -54,4 +50,3 @@ function playGame() {
 }
 
 console.log(playGame())
-*/
