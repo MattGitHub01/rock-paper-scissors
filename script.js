@@ -1,6 +1,7 @@
 function getComputerChoice() {
     let compChoice = "";
     let compNum = Math.random() * (3 - 0) + 0;
+    console.log(compNum);
     if (compNum === 0 ) {
         compChoice === "rock";
         return compChoice
@@ -11,11 +12,13 @@ function getComputerChoice() {
         compChoice === "scissors";
         return compChoice
     } else {
-        console.log("Error, please reset program");
+        console.log(compChoice);
         return compChoice
     }
 }
 
+console.log(getComputerChoice())
+/*
 function playRound(input) {
     if (typeof input == 'string') {
        let userInput = input.toLowerCase()
@@ -45,9 +48,10 @@ function playRound(input) {
 function playGame() {
     playRound("Paper")
     playRound("rock")
-    playRound("Scissors")
-    playRound(59)
-    playRound("Hello!")
+    playRound("hey!")
+    playRound(448)
+    playRound(3)
 }
 
-console.log(playRound())
+console.log(playGame())
+*/
