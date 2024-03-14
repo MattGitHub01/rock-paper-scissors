@@ -18,9 +18,7 @@ function getComputerChoice() {
 
 function playRound(userInput) {
     userInput = userInput.toLowerCase();
-    // convert user input into lower case
     let computerInput = getComputerChoice();
-    // run getComputerChoice()
     if (computerInput === userInput) {
         return "It's a Tie!"
     } else if (computerInput === "rock" && userInput === "paper") {
@@ -38,20 +36,12 @@ function playRound(userInput) {
     } else {
         return "Invalid input, please type either Rock, Paper or Scissors!"
     }
-    // check userInput against computerChoice()
-        // check if input is a string / either rock, paper or scissors
-            //if not then return "Wrong input! Please choose rock, paper or scissors!"
-    // if player wins return "You Win! [userInput] beats [computerChoice()]"
-    // if computer wins return "You Lose! [computerChoice() beats [userInput]"
-
 }
 
 function playGame() {
-    //don't use loops because prompt
     playRound()
     playRound()
     playRound()
     playRound()
     playRound()
-    //play five instances of playRound
 }
