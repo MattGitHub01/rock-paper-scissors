@@ -50,4 +50,4 @@ function playGame() {
     playRound("Hello!")
 }
 
-playRound()
+console.log(playRound())
