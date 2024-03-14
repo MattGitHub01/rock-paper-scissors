@@ -16,9 +16,13 @@ function getComputerChoice() {
     }
 }
 
-function playRound(userInput) {
-    userInput = userInput.toLowerCase();
-    let computerInput = getComputerChoice();
+function playRound(input) {
+    if (typeof input == 'string') {
+       let userInput = input.toLowerCase()
+    } else {
+        return "Invalid input, please type either Rock, Paper or Scissors!"
+    }
+    let computerInput = getComputerChoice()
     if (computerInput === userInput) {
         return "It's a Tie!"
     } else if (computerInput === "rock" && userInput === "paper") {
@@ -39,9 +43,11 @@ function playRound(userInput) {
 }
 
 function playGame() {
-    playRound()
-    playRound()
-    playRound()
-    playRound()
-    playRound()
+    playRound("Paper")
+    playRound("rock")
+    playRound("Scissors")
+    playRound(59)
+    playRound("Hello!")
 }
+
+playRound()
