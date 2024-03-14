@@ -48,5 +48,10 @@ function playRound(userInput) {
 
 function playGame() {
     //don't use loops because prompt
+    playRound()
+    playRound()
+    playRound()
+    playRound()
+    playRound()
     //play five instances of playRound
 }
