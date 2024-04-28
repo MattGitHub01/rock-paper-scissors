@@ -41,10 +41,10 @@ function playRound() {
         alert("You Win, " + userInput + " beats " + computerInput + "!");
     } else if (computerInput === "scissors" && userInput === "rock") {
        alert("You Win, " + userInput + " beats " + computerInput + "!");
-    } else if (computerInput === "paper" && userInput === "scissors") {
+    } else if (computerInput === "scissors" && userInput === "paper") {
         alert("You Lose, " + computerInput + " beats " + userInput + "!");
     } else {
-        alert("Invalid input, please type either Rock, Paper or Scissors!");
+        alert(userInput + "  " + computerInput);
     }
 }
 
