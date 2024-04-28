@@ -54,20 +54,19 @@ function playGame() {
         playRound();
         rounds--;
     }
-    let playAgain = prompt("Play Again? Y or N");
     let inputCorrect = false;
 
     while (inputCorrect !== true) {
+        let playAgain = prompt("Play Again? Y or N");
         if ((playAgain === "Y" || playAgain === "y") || (playAgain === "yes" || playAgain === "Yes")) {
             inputCorrect === true;
             return playGame()
             break
         } else if ((playAgain === "no" || playAgain === "No") || (playAgain === "N" || playAgain === "n")) {
             alert("Good Game!");
-            continue
+            break
         } else {
             alert("Invalid Input");
-            continue
         }
     }
 }
