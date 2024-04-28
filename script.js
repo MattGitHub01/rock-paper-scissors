@@ -1,6 +1,6 @@
 let choice = "";
-let playerScore = 0;
-let compScore = 0;
+let playerScoreValue = 0;
+let compScoreValue = 0;
 
 const container = document.querySelector(".container")
 container.setAttribute("align", "center");
@@ -10,17 +10,24 @@ title.textContent = "Rock, Paper or Scissors?";
 title.setAttribute("align", "center", "style", "margin: 15px");
 container.appendChild(title);
 
+
 const score = document.createElement("div");
+
+let playerScore = document.createElement("span");
+playerScore.textContent = playerScoreValue;
+let compScore = document.createElement("span");
+compScore.textContent = compScoreValue; 
 
 const scoreTitle = document.createElement("h2");
 scoreTitle.textContent = "Score";
 score.appendChild(scoreTitle);
-
+//SCORE STUFF
 const scoreContent = document.createElement("h3");
 scoreContent.textContent = "Player: " + playerScore + " | Opponent: " + compScore;
 score.appendChild(scoreContent);
 
 container.appendChild(score);
+//SCORE STUFF
 
 
 const rock = document.createElement("button");
@@ -68,6 +75,10 @@ function getHumanChoice() {
     } 
 }
 */
+
+function increaseScore(score) {
+    
+}
 
 function getComputerChoice() {
     let compChoice = "";
