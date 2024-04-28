@@ -28,27 +28,27 @@ function getComputerChoice() {
 
 function playRound() {
     let userInput = getHumanChoice();
-    let computerInput = getComputerChoice()
+    let computerInput = getComputerChoice();
     if (computerInput === userInput) {
-        return "It's a Tie!"
+        alert("It's a Tie!");
     } else if (computerInput === "rock" && userInput === "paper") {
-        return "You Win, " + userInput + " beats " + computerInput
+        alert("You Win, " + userInput + " beats " + computerInput + "!");
     } else if (computerInput === "rock" && userInput === "scissors") {
-        return "You Lose, " + computerInput + " beats " + userInput
+        alert("You Lose, " + computerInput + " beats " + userInput + "!");
     } else if (computerInput === "paper" && userInput === "rock") {
-        return "You Lose, " + computerInput + " beats " + userInput
+        alert("You Lose, " + computerInput + " beats " + userInput + "!");
     } else if (computerInput === "paper" && userInput === "scissors") {
-            return "You Win, " + userInput + " beats " + computerInput
+        alert("You Win, " + userInput + " beats " + computerInput + "!");
     } else if (computerInput === "scissors" && userInput === "rock") {
-        return "You Win, " + userInput + " beats " + computerInput
+       alert("You Win, " + userInput + " beats " + computerInput + "!");
     } else if (computerInput === "paper" && userInput === "scissors") {
-        return "You Lose, " + computerInput + " beats " + userInput
+        alert("You Lose, " + computerInput + " beats " + userInput + "!");
     } else {
-        return "Invalid input, please type either Rock, Paper or Scissors!"
+        alert("Invalid input, please type either Rock, Paper or Scissors!");
     }
 }
 
-getHumanChoice()
+playRound()
 
 /*
 function playGame() {
