@@ -16,8 +16,9 @@ function getComputerChoice() {
 }
 
 function playRound(input) {
+    let userInput = "";
     if (typeof input === 'string') {
-       let userInput = input.toLowerCase()
+        userInput = input.toLowerCase();
     } else {
         return "Invalid input, please type either Rock, Paper or Scissors!"
     }
@@ -42,11 +43,11 @@ function playRound(input) {
 }
 
 function playGame() {
-    playRound("Paper")
-    playRound("rock")
-    playRound("hey!")
-    playRound(448)
-    playRound(3)
+    console.log(playRound("Paper"))
+    console.log(playRound("rock"))
+    console.log(playRound("scissors"))
+    console.log(playRound("rockk"))
+    console.log(playRound(1000))
 }
 
-console.log(playGame())
+playGame()
