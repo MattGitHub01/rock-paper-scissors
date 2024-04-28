@@ -1,3 +1,17 @@
+const container = document.querySelector(".container")
+
+const rock = document.createElement("button");
+rock.textContent = "Rock";
+const paper = document.createElement("button");
+paper.textContent = "Paper";
+const scissors = document.createElement("button");
+scissors.textContent = "Scissors";
+
+
+
+
+
+
 function getHumanChoice() {
     let choice = prompt("Choose one: Rock, Paper or Scissors");
     choice = choice.toLowerCase();
