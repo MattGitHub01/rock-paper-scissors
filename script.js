@@ -20,6 +20,9 @@ scissors.setAttribute("style", "margin: 20px");
 container.appendChild(scissors);
 
 const results = document.querySelector(".results");
+const resultList = document.createElement("ul");
+results.appendChild(resultList);
+
 
 rock.addEventListener("click", () => {
     choice = "rock";
@@ -66,23 +69,26 @@ function getComputerChoice() {
 function playRound() {
     let userInput = choice;
     let computerInput = getComputerChoice();
+    let roundResult = document.createElement("li");
+    roundResult.setAttribute("style", "list-style-type:none");
     if (computerInput === userInput) {
-        results.textContent = "It's a Tie!";
+        roundResult.textContent = "You Chose: " + userInput + "Your Opponent Chose: " + computerInput + "\n | It's a Tie!";
     } else if (computerInput === "rock" && userInput === "paper") {
-        results.textContent = "You Win, " + userInput + " beats " + computerInput + "!";
+        roundResult.textContent = "You Chose: " + userInput + "Your Opponent Chose: " + computerInput + "\n | You Win, " + userInput + " beats " + computerInput + "!";
     } else if (computerInput === "rock" && userInput === "scissors") {
-        results.textContent = "You Lose, " + computerInput + " beats " + userInput + "!";
+        roundResult.textContent = "You Chose: " + userInput + "Your Opponent Chose: " + computerInput + "\n | You Lose, " + computerInput + " beats " + userInput + "!";
     } else if (computerInput === "paper" && userInput === "rock") {
-        results.textContent = "You Lose, " + computerInput + " beats " + userInput + "!";
+        roundResult.textContent = "You Chose: " + userInput + "Your Opponent Chose: " + computerInput + "\n | You Lose, " + computerInput + " beats " + userInput + "!";
     } else if (computerInput === "paper" && userInput === "scissors") {
-        results.textContent = "You Win, " + userInput + " beats " + computerInput + "!";
+        roundResult.textContent = "You Chose: " + userInput + "Your Opponent Chose: " + computerInput + "\n | You Win, " + userInput + " beats " + computerInput + "!";
     } else if (computerInput === "scissors" && userInput === "rock") {
-        results.textContent = "You Win, " + userInput + " beats " + computerInput + "!";
+        roundResult.textContent = "You Chose: " + userInput + "Your Opponent Chose: " + computerInput + "\n | You Win, " + userInput + " beats " + computerInput + "!";
     } else if (computerInput === "scissors" && userInput === "paper") {
-        results.textContent = "You Lose, " + computerInput + " beats " + userInput + "!";
+        roundResult.textContent = "You Chose: " + userInput + "Your Opponent Chose: " + computerInput + + " | You Lose, " + computerInput + " beats " + userInput + "!";
     } else {
-        results.textContent = "Error: Please Reset Game";
+        roundResult.textContent = "Error: Please Reset Game";
     }
+    results.appendChild(roundResult);
 }
 
 
