@@ -58,11 +58,11 @@ function playGame() {
     let inputCorrect = false;
 
     while (inputCorrect !== true) {
-        if (playAgain === "Y" || playAgain === "y") {
+        if ((playAgain === "Y" || playAgain === "y") || (playAgain === "yes" || playAgain === "Yes")) {
             inputCorrect === true;
             return playGame()
             break
-        } else if (playAgain === "N" || playAgain === "n") {
+        } else if ((playAgain === "no" || playAgain === "No") || (playAgain === "N" || playAgain === "n")) {
             alert("Good Game!");
             continue
         } else {
