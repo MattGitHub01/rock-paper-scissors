@@ -1,26 +1,31 @@
 let choice = "";
 
-const container = document.querySelector(".container")
 
-const title = document.createElement("h2");
+
+const container = document.querySelector(".container")
+container.setAttribute("align", "center");
+
+
+const title = document.createElement("h1");
 title.textContent = "Rock, Paper or Scissors?";
-title.setAttribute("style", "margin: 19px");
+title.setAttribute("align", "center", "style", "margin: 15px");
 container.appendChild(title);
 
 const rock = document.createElement("button");
 rock.textContent = "Rock";
-rock.setAttribute("style", "margin: 20px");
+rock.setAttribute("style", "margin: 18px");
 container.appendChild(rock);
 const paper = document.createElement("button");
 paper.textContent = "Paper";
-paper.setAttribute("style", "margin: 20px");
+paper.setAttribute("style", "margin: 18px");
 container.appendChild(paper);
 const scissors = document.createElement("button");
 scissors.textContent = "Scissors";
-scissors.setAttribute("style", "margin: 20px");
+scissors.setAttribute("style", "margin: 18px");
 container.appendChild(scissors);
 
-const results = document.querySelector(".results");
+const results = document.createElement("div");
+container.appendChild(results);
 const resultList = document.createElement("ul");
 results.appendChild(resultList);
 
