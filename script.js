@@ -21,13 +21,16 @@ container.appendChild(scissors);
 
 rock.addEventListener("click", () => {
     choice = "rock";
+    playRound()
 });
 paper.addEventListener("click", () => {
     choice = "paper";
+    playRound()
 });
 scissors.addEventListener("click", () => {
     choice = "scissors";
-})
+    playRound()
+});
 
 /*
 function getHumanChoice() {
