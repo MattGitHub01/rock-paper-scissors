@@ -1,9 +1,10 @@
+let choice = "";
+
 const container = document.querySelector(".container")
 
 const title = document.createElement("h1");
 container.appendChild(title);
 title.textContent = "Rock, Paper or Scissors?";
-
 
 const rock = document.createElement("button");
 rock.textContent = "Rock";
@@ -18,15 +19,18 @@ scissors.textContent = "Scissors";
 scissors.setAttribute("style", "margin: 20px");
 container.appendChild(scissors);
 
+rock.addEventListener("click", () => {
+    choice = "rock";
+});
+paper.addEventListener("click", () => {
+    choice = "paper";
+});
+scissors.addEventListener("click", () => {
+    choice = "scissors";
+})
 
-
-
-
-
-
-
+/*
 function getHumanChoice() {
-    let choice = prompt("Choose one: Rock, Paper or Scissors");
     choice = choice.toLowerCase();
     if (choice === "rock" || (choice === "paper" || choice ==="scissors")) {
         return choice
@@ -35,6 +39,7 @@ function getHumanChoice() {
         return getHumanChoice()
     } 
 }
+*/
 
 function getComputerChoice() {
     let compChoice = "";
@@ -54,7 +59,7 @@ function getComputerChoice() {
 }
 
 function playRound() {
-    let userInput = getHumanChoice();
+    let userInput = choice;
     let computerInput = getComputerChoice();
     if (computerInput === userInput) {
         alert("It's a Tie!");
@@ -75,6 +80,7 @@ function playRound() {
     }
 }
 
+/*
 function playGame() {
     let rounds = 5;
     while (rounds > 0) {
@@ -97,5 +103,6 @@ function playGame() {
         }
     }
 }
+*/
 
-playGame()
+//playGame()
