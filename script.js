@@ -19,6 +19,8 @@ scissors.textContent = "Scissors";
 scissors.setAttribute("style", "margin: 20px");
 container.appendChild(scissors);
 
+const results = document.querySelector(".results");
+
 rock.addEventListener("click", () => {
     choice = "rock";
     playRound()
@@ -65,23 +67,25 @@ function playRound() {
     let userInput = choice;
     let computerInput = getComputerChoice();
     if (computerInput === userInput) {
-        alert("It's a Tie!");
+        results.textContent = "It's a Tie!";
     } else if (computerInput === "rock" && userInput === "paper") {
-        alert("You Win, " + userInput + " beats " + computerInput + "!");
+        results.textContent = "You Win, " + userInput + " beats " + computerInput + "!";
     } else if (computerInput === "rock" && userInput === "scissors") {
-        alert("You Lose, " + computerInput + " beats " + userInput + "!");
+        results.textContent = "You Lose, " + computerInput + " beats " + userInput + "!";
     } else if (computerInput === "paper" && userInput === "rock") {
-        alert("You Lose, " + computerInput + " beats " + userInput + "!");
+        results.textContent = "You Lose, " + computerInput + " beats " + userInput + "!";
     } else if (computerInput === "paper" && userInput === "scissors") {
-        alert("You Win, " + userInput + " beats " + computerInput + "!");
+        results.textContent = "You Win, " + userInput + " beats " + computerInput + "!";
     } else if (computerInput === "scissors" && userInput === "rock") {
-       alert("You Win, " + userInput + " beats " + computerInput + "!");
+        results.textContent = "You Win, " + userInput + " beats " + computerInput + "!";
     } else if (computerInput === "scissors" && userInput === "paper") {
-        alert("You Lose, " + computerInput + " beats " + userInput + "!");
+        results.textContent = "You Lose, " + computerInput + " beats " + userInput + "!";
     } else {
-        alert("Error: Please Reset Game");
+        results.textContent = "Error: Please Reset Game";
     }
 }
+
+
 
 /*
 function playGame() {
