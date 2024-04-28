@@ -1,11 +1,24 @@
 const container = document.querySelector(".container")
 
+const title = document.createElement("h1");
+container.appendChild(title);
+title.textContent = "Rock, Paper or Scissors?";
+
+
 const rock = document.createElement("button");
 rock.textContent = "Rock";
+rock.setAttribute("style", "margin: 20px");
+container.appendChild(rock);
 const paper = document.createElement("button");
 paper.textContent = "Paper";
+paper.setAttribute("style", "margin: 20px");
+container.appendChild(paper);
 const scissors = document.createElement("button");
 scissors.textContent = "Scissors";
+scissors.setAttribute("style", "margin: 20px");
+container.appendChild(scissors);
+
+
 
 
 
