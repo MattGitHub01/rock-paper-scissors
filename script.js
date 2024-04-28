@@ -1,3 +1,14 @@
+function getHumanChoice() {
+    let choice = prompt("Choose one: Rock, Paper or Scissors");
+    choice = choice.toLowerCase();
+    if (choice === "rock" || (choice === "paper" || choice ==="scissors")) {
+        return choice
+    } else {
+        alert("Invalid input!")
+        return getHumanChoice()
+    } 
+}
+
 function getComputerChoice() {
     let compChoice = "";
     let compNum = Math.floor(Math.random() * (3 - 0)) + 0;
@@ -15,13 +26,8 @@ function getComputerChoice() {
     }
 }
 
-function playRound(input) {
-    let userInput = "";
-    if (typeof input === 'string') {
-        userInput = input.toLowerCase();
-    } else {
-        return "Invalid input, please type either Rock, Paper or Scissors!"
-    }
+function playRound() {
+    let userInput = getHumanChoice();
     let computerInput = getComputerChoice()
     if (computerInput === userInput) {
         return "It's a Tie!"
@@ -42,6 +48,9 @@ function playRound(input) {
     }
 }
 
+getHumanChoice()
+
+/*
 function playGame() {
     console.log(playRound("Paper"))
     console.log(playRound("rock"))
@@ -51,3 +60,4 @@ function playGame() {
 }
 
 playGame()
+*/
