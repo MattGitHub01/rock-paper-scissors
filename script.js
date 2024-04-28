@@ -44,20 +44,16 @@ function playRound() {
     } else if (computerInput === "scissors" && userInput === "paper") {
         alert("You Lose, " + computerInput + " beats " + userInput + "!");
     } else {
-        alert(userInput + "  " + computerInput);
+        alert("Error: Please Reset Game");
     }
 }
 
-playRound()
-
-/*
 function playGame() {
-    console.log(playRound("Paper"))
-    console.log(playRound("rock"))
-    console.log(playRound("scissors"))
-    console.log(playRound("rockk"))
-    console.log(playRound(1000))
+    let rounds = 5;
+    while (rounds > 0) {
+        playRound();
+        rounds--;
+    }
 }
 
 playGame()
-*/
