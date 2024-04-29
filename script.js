@@ -54,31 +54,6 @@ scissors.addEventListener("click", () => {
     playRound()
 });
 
-/*
-function getHumanChoice() {
-    choice = choice.toLowerCase();
-    if (choice === "rock" || (choice === "paper" || choice ==="scissors")) {
-        return choice
-    } else {
-        alert("Invalid input!")
-        return getHumanChoice()
-    } 
-}      
-
-\\\\\\\PLAY AGAIN BUTTON BELOW/////////
-
-const playAgainBtn = document.createElement("button");
-        playAgainBtn.textContent = "Play!";
-        playAgain.appendChild(playAgainBtn);
-        playAgainBtn.addEventListener("click", () => {
-            resetPage();
-        })
-*/
-
-function resetPage() {
-
-}
-
 function scoreManager(score) {
     if (playerScoreValue === 4) {
         playerScoreValue++;
@@ -207,32 +182,3 @@ function playRound() {
     roundOutcome.appendChild(roundMessage);
     resultList.appendChild(roundOutcome);
 }
-
-
-
-/*
-function playGame() {
-    let rounds = 5;
-    while (rounds > 0) {
-        playRound();
-        rounds--;
-    }
-    let inputCorrect = false;
-
-    while (inputCorrect !== true) {
-        let playAgain = prompt("Play Again? Y or N");
-        if ((playAgain === "Y" || playAgain === "y") || (playAgain === "yes" || playAgain === "Yes")) {
-            inputCorrect === true;
-            return playGame()
-            break
-        } else if ((playAgain === "no" || playAgain === "No") || (playAgain === "N" || playAgain === "n")) {
-            alert("Good Game!");
-            break
-        } else {
-            alert("Invalid Input");
-        }
-    }
-}
-*/
-
-//playGame()
