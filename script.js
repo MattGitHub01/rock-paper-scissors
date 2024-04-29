@@ -10,25 +10,8 @@ title.textContent = "Rock, Paper or Scissors?";
 title.setAttribute("align", "center", "style", "margin: 15px");
 container.appendChild(title);
 
-
-const score = document.createElement("div");
-
-let playerScore = document.createElement("span");
-playerScore.textContent = playerScoreValue;
-let compScore = document.createElement("span");
-compScore.textContent = compScoreValue; 
-
-const scoreTitle = document.createElement("h2");
-scoreTitle.textContent = "Score";
-score.appendChild(scoreTitle);
-//SCORE STUFF
-const scoreContent = document.createElement("h3");
-scoreContent.textContent = "Player: " + playerScore + " | Opponent: " + compScore;
-score.appendChild(scoreContent);
-
-container.appendChild(score);
-//SCORE STUFF
-
+const playerScore = document.querySelector(".playerScore");
+const compScore = document.querySelector(".compScore");
 
 const rock = document.createElement("button");
 rock.textContent = "Rock";
@@ -77,7 +60,13 @@ function getHumanChoice() {
 */
 
 function increaseScore(score) {
-    
+    if (score === "player") {
+        playerScoreValue++;
+        playerScore.textContent = playerScoreValue;
+    } else if (score === "computer") {
+        compScoreValue++;
+        compScore.textContent = compScoreValue;
+    }
 }
 
 function getComputerChoice() {
@@ -111,33 +100,27 @@ function playRound() {
         roundResult.textContent = "You Chose: " + userInput + " | Your Opponent Chose: " + computerInput;
         roundMessage.textContent = "It's a Tie!";
     } else if (computerInput === "Rock" && userInput === "Paper") {
-        playerScore++;
-        alert(playerScore + " " + compScore);
+        increaseScore("player");
         roundResult.textContent = "You Chose: " + userInput + " | Your Opponent Chose: " + computerInput;
         roundMessage.textContent = "You Win, " + userInput + " beats " + computerInput + "!";
     } else if (computerInput === "Rock" && userInput === "Scissors") {
-        compScore++;
-        alert(playerScore + " " + compScore);
+        increaseScore("computer");
         roundResult.textContent = "You Chose: " + userInput + " | Your Opponent Chose: " + computerInput;
         roundMessage.textContent = "You Lose, " + computerInput + " beats " + userInput + "!";
     } else if (computerInput === "Paper" && userInput === "Rock") {
-        compScore++;
-        alert(playerScore + " " + compScore);
+        increaseScore("computer");
         roundResult.textContent = "You Chose: " + userInput + " | Your Opponent Chose: " + computerInput; 
         roundMessage.textContent = "You Lose, " + computerInput + " beats " + userInput + "!";
     } else if (computerInput === "Paper" && userInput === "Scissors") {
-        playerScore++;
-        alert(playerScore + " " + compScore);
+        increaseScore("player");
         roundResult.textContent = "You Chose: " + userInput + " | Your Opponent Chose: " + computerInput;
         roundMessage.textContent = "You Win, " + userInput + " beats " + computerInput + "!";
     } else if (computerInput === "Scissors" && userInput === "Rock") {
-        playerScore++;
-        alert(playerScore + " " + compScore);
+        increaseScore("player");
         roundResult.textContent = "You Chose: " + userInput + " | Your Opponent Chose: " + computerInput;
         roundMessage.textContent = "You Win, " + userInput + " beats " + computerInput + "!";
     } else if (computerInput === "Scissors" && userInput === "Paper") {
-        compScore++;
-        alert(playerScore + " " + compScore);
+        increaseScore("computer");
         roundResult.textContent = "You Chose: " + userInput + " | Your Opponent Chose: " + computerInput;
         roundMessage.textContent = "You Lose, " + computerInput + " beats " + userInput + "!";
     } else {
