@@ -13,6 +13,9 @@ container.appendChild(title);
 const playerScore = document.querySelector(".playerScore");
 const compScore = document.querySelector(".compScore");
 
+const winnerAnnounce = document.querySelector(".winnerAnnounce");
+const playAgain = document.querySelector(".playAgain");
+
 const rock = document.createElement("button");
 rock.textContent = "Rock";
 rock.setAttribute("style", "margin: 18px");
@@ -38,10 +41,12 @@ rock.addEventListener("click", () => {
     choice = "Rock";
     playRound()
 });
+
 paper.addEventListener("click", () => {
     choice = "Paper";
     playRound()
 });
+
 scissors.addEventListener("click", () => {
     choice = "Scissors";
     playRound()
@@ -59,13 +64,25 @@ function getHumanChoice() {
 }
 */
 
-function increaseScore(score) {
-    if (score === "player") {
+function scoreManager(score) {
+    if (playerScoreValue === 4) {
         playerScoreValue++;
         playerScore.textContent = playerScoreValue;
-    } else if (score === "computer") {
+        winnerAnnounce.textContent = "You Win!";
+        playAgain.textContent = "Play Again?";
+    } else if (compScoreValue === 4) {
         compScoreValue++;
         compScore.textContent = compScoreValue;
+        winnerAnnounce.textContent = "You Lose!";
+        playAgain.textContent = "Play Again?";
+    } else if (playerScoreValue < 5 && compScoreValue < 5) {
+        if (score === "player") {
+            playerScoreValue++;
+            playerScore.textContent = playerScoreValue;
+        } else if (score === "computer") {
+            compScoreValue++;
+            compScore.textContent = compScoreValue;
+        }
     }
 }
 
@@ -100,27 +117,27 @@ function playRound() {
         roundResult.textContent = "You Chose: " + userInput + " | Your Opponent Chose: " + computerInput;
         roundMessage.textContent = "It's a Tie!";
     } else if (computerInput === "Rock" && userInput === "Paper") {
-        increaseScore("player");
+        scoreManager("player");
         roundResult.textContent = "You Chose: " + userInput + " | Your Opponent Chose: " + computerInput;
         roundMessage.textContent = "You Win, " + userInput + " beats " + computerInput + "!";
     } else if (computerInput === "Rock" && userInput === "Scissors") {
-        increaseScore("computer");
+        scoreManager("computer");
         roundResult.textContent = "You Chose: " + userInput + " | Your Opponent Chose: " + computerInput;
         roundMessage.textContent = "You Lose, " + computerInput + " beats " + userInput + "!";
     } else if (computerInput === "Paper" && userInput === "Rock") {
-        increaseScore("computer");
+        scoreManager("computer");
         roundResult.textContent = "You Chose: " + userInput + " | Your Opponent Chose: " + computerInput; 
         roundMessage.textContent = "You Lose, " + computerInput + " beats " + userInput + "!";
     } else if (computerInput === "Paper" && userInput === "Scissors") {
-        increaseScore("player");
+        scoreManager("player");
         roundResult.textContent = "You Chose: " + userInput + " | Your Opponent Chose: " + computerInput;
         roundMessage.textContent = "You Win, " + userInput + " beats " + computerInput + "!";
     } else if (computerInput === "Scissors" && userInput === "Rock") {
-        increaseScore("player");
+        scoreManager("player");
         roundResult.textContent = "You Chose: " + userInput + " | Your Opponent Chose: " + computerInput;
         roundMessage.textContent = "You Win, " + userInput + " beats " + computerInput + "!";
     } else if (computerInput === "Scissors" && userInput === "Paper") {
-        increaseScore("computer");
+        scoreManager("computer");
         roundResult.textContent = "You Chose: " + userInput + " | Your Opponent Chose: " + computerInput;
         roundMessage.textContent = "You Lose, " + computerInput + " beats " + userInput + "!";
     } else {
