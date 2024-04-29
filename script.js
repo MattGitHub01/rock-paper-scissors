@@ -2,7 +2,7 @@ let choice = "";
 let playerScoreValue = 0;
 let compScoreValue = 0;
 
-const defaultDomState = document.body.innerHTML;
+const playAgainBtn = document.createElement("button");
 
 const container = document.querySelector(".container")
 container.setAttribute("align", "center");
@@ -63,14 +63,20 @@ function getHumanChoice() {
         alert("Invalid input!")
         return getHumanChoice()
     } 
-}
+}      
+
+\\\\\\\PLAY AGAIN BUTTON BELOW/////////
+
+const playAgainBtn = document.createElement("button");
+        playAgainBtn.textContent = "Play!";
+        playAgain.appendChild(playAgainBtn);
+        playAgainBtn.addEventListener("click", () => {
+            resetPage();
+        })
 */
 
 function resetPage() {
-    playerScoreValue = 0;
-    compScoreValue = 0;
-    playerScore.textContent = playerScoreValue;
-    compScore.textContent = compScoreValue;
+
 }
 
 function scoreManager(score) {
@@ -79,24 +85,31 @@ function scoreManager(score) {
         playerScore.textContent = playerScoreValue;
         winnerAnnounce.textContent = "You Win!";
         playAgain.textContent = "Play Again?  || ";
-        const playAgainBtn = document.createElement("button");
         playAgainBtn.textContent = "Play!";
         playAgain.appendChild(playAgainBtn);
         playAgainBtn.addEventListener("click", () => {
-            resetPage();
+            playerScoreValue = 0;
+            compScoreValue = 0;
+            playerScore.textContent = playerScoreValue;
+            compScore.textContent = compScoreValue;
+            winnerAnnounce.textContent = "";
+            playAgain.textContent = "";
         })
     } else if (compScoreValue === 4) {
         compScoreValue++;
         compScore.textContent = compScoreValue;
         winnerAnnounce.textContent = "You Lose!";
         playAgain.textContent = "Play Again?  || ";
-        const playAgainBtn = document.createElement("button");
         playAgainBtn.textContent = "Play!";
         playAgain.appendChild(playAgainBtn);
         playAgainBtn.addEventListener("click", () => {
-            resetPage();
+            playerScoreValue = 0;
+            compScoreValue = 0;
+            playerScore.textContent = playerScoreValue;
+            compScore.textContent = compScoreValue;
+            winnerAnnounce.textContent = "";
+            playAgain.textContent = "";
         })
-
     } else if (playerScoreValue < 5 && compScoreValue < 5) {
         if (score === "player") {
             playerScoreValue++;
@@ -131,42 +144,65 @@ function playRound() {
     let computerInput = getComputerChoice();
 
     const roundResult = document.createElement("div");
-    const roundMessage = document.createElement("div");
+    const roundMessage = document.createElement("span");
     const roundOutcome = document.createElement("li");
     roundOutcome.setAttribute("style", "list-style-type:none");
     if (playerScoreValue < 5 || compScoreValue < 5) {
         if (computerInput === userInput) {
             roundResult.textContent = "You Chose: " + userInput + " | Your Opponent Chose: " + computerInput;
-            roundMessage.textContent = "It's a Tie!";
+            roundMessage.textContent = "It's a Tie!     ";
+            playAgainBtn.addEventListener("click", () => {
+                resultList.removeChild(roundOutcome);
+            });
         } else if (computerInput === "Rock" && userInput === "Paper") {
             scoreManager("player");
             roundResult.textContent = "You Chose: " + userInput + " | Your Opponent Chose: " + computerInput;
-            roundMessage.textContent = "You Win, " + userInput + " beats " + computerInput + "!";
+            roundMessage.textContent = "You Win, " + userInput + " beats " + computerInput + "!     ";
+            playAgainBtn.addEventListener("click", () => {
+                resultList.removeChild(roundOutcome);
+            });
         } else if (computerInput === "Rock" && userInput === "Scissors") {
             scoreManager("computer");
             roundResult.textContent = "You Chose: " + userInput + " | Your Opponent Chose: " + computerInput;
-            roundMessage.textContent = "You Lose, " + computerInput + " beats " + userInput + "!";
+            roundMessage.textContent = "You Lose, " + computerInput + " beats " + userInput + "!     ";
+            playAgainBtn.addEventListener("click", () => {
+                resultList.removeChild(roundOutcome);
+            });
         } else if (computerInput === "Paper" && userInput === "Rock") {
             scoreManager("computer");
             roundResult.textContent = "You Chose: " + userInput + " | Your Opponent Chose: " + computerInput; 
-            roundMessage.textContent = "You Lose, " + computerInput + " beats " + userInput + "!";
+            roundMessage.textContent = "You Lose, " + computerInput + " beats " + userInput + "!     ";
+            playAgainBtn.addEventListener("click", () => {
+                resultList.removeChild(roundOutcome);
+            });
         } else if (computerInput === "Paper" && userInput === "Scissors") {
             scoreManager("player");
             roundResult.textContent = "You Chose: " + userInput + " | Your Opponent Chose: " + computerInput;
-            roundMessage.textContent = "You Win, " + userInput + " beats " + computerInput + "!";
+            roundMessage.textContent = "You Win, " + userInput + " beats " + computerInput + "!     ";
+            playAgainBtn.addEventListener("click", () => {
+                resultList.removeChild(roundOutcome);
+            });
         } else if (computerInput === "Scissors" && userInput === "Rock") {
             scoreManager("player");
             roundResult.textContent = "You Chose: " + userInput + " | Your Opponent Chose: " + computerInput;
-            roundMessage.textContent = "You Win, " + userInput + " beats " + computerInput + "!";
+            roundMessage.textContent = "You Win, " + userInput + " beats " + computerInput + "!     ";
+            playAgainBtn.addEventListener("click", () => {
+                resultList.removeChild(roundOutcome);
+            });
         } else if (computerInput === "Scissors" && userInput === "Paper") {
             scoreManager("computer");
             roundResult.textContent = "You Chose: " + userInput + " | Your Opponent Chose: " + computerInput;
-            roundMessage.textContent = "You Lose, " + computerInput + " beats " + userInput + "!";
+            roundMessage.textContent = "You Lose, " + computerInput + " beats " + userInput + "!     ";
+            playAgainBtn.addEventListener("click", () => {
+                resultList.removeChild(roundOutcome);
+            });
         } else {
             roundResult.textContent = "Error: Please Reset Game";
+            playAgainBtn.addEventListener("click", () => {
+                resultList.removeChild(roundOutcome);
+            });
         }
     }
-
     roundOutcome.appendChild(roundResult);
     roundOutcome.appendChild(roundMessage);
     resultList.appendChild(roundOutcome);
