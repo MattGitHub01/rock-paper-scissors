@@ -2,6 +2,8 @@ let choice = "";
 let playerScoreValue = 0;
 let compScoreValue = 0;
 
+const defaultDomState = document.body.innerHTML;
+
 const container = document.querySelector(".container")
 container.setAttribute("align", "center");
 
@@ -15,7 +17,6 @@ const compScore = document.querySelector(".compScore");
 
 const winnerAnnounce = document.querySelector(".winnerAnnounce");
 const playAgain = document.querySelector(".playAgain");
-const playAgainBtn = document.querySelector(".playAgainBtn");
 
 const rock = document.createElement("button");
 rock.textContent = "Rock";
@@ -70,12 +71,23 @@ function scoreManager(score) {
         playerScoreValue++;
         playerScore.textContent = playerScoreValue;
         winnerAnnounce.textContent = "You Win!";
-        playAgain.textContent = "Play Again?";
+        playAgain.textContent = "Play Again?    ";
+        const playAgainBtn = document.createElement("button");
+        playAgainBtn.textContent = "Play!";
+        playAgainBtn.addEventListener("click", () => {
+            document.body.innerHTML = defaultDomState;
+        })
     } else if (compScoreValue === 4) {
         compScoreValue++;
         compScore.textContent = compScoreValue;
         winnerAnnounce.textContent = "You Lose!";
-        playAgain.textContent = "Play Again?";
+        playAgain.textContent = "Play Again?    ";
+        const playAgainBtn = document.createElement("button");
+        playAgainBtn.textContent = "Play!";
+        playAgainBtn.addEventListener("click", () => {
+            document.body.innerHTML = defaultDomState;
+        })
+
     } else if (playerScoreValue < 5 && compScoreValue < 5) {
         if (score === "player") {
             playerScoreValue++;
