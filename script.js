@@ -66,26 +66,35 @@ function getHumanChoice() {
 }
 */
 
+function resetPage() {
+    playerScoreValue = 0;
+    compScoreValue = 0;
+    playerScore.textContent = playerScoreValue;
+    compScore.textContent = compScoreValue;
+}
+
 function scoreManager(score) {
     if (playerScoreValue === 4) {
         playerScoreValue++;
         playerScore.textContent = playerScoreValue;
         winnerAnnounce.textContent = "You Win!";
-        playAgain.textContent = "Play Again?    ";
+        playAgain.textContent = "Play Again?  || ";
         const playAgainBtn = document.createElement("button");
         playAgainBtn.textContent = "Play!";
+        playAgain.appendChild(playAgainBtn);
         playAgainBtn.addEventListener("click", () => {
-            document.body.innerHTML = defaultDomState;
+            resetPage();
         })
     } else if (compScoreValue === 4) {
         compScoreValue++;
         compScore.textContent = compScoreValue;
         winnerAnnounce.textContent = "You Lose!";
-        playAgain.textContent = "Play Again?    ";
+        playAgain.textContent = "Play Again?  || ";
         const playAgainBtn = document.createElement("button");
         playAgainBtn.textContent = "Play!";
+        playAgain.appendChild(playAgainBtn);
         playAgainBtn.addEventListener("click", () => {
-            document.body.innerHTML = defaultDomState;
+            resetPage();
         })
 
     } else if (playerScoreValue < 5 && compScoreValue < 5) {
@@ -125,7 +134,7 @@ function playRound() {
     const roundMessage = document.createElement("div");
     const roundOutcome = document.createElement("li");
     roundOutcome.setAttribute("style", "list-style-type:none");
-    if (playerScoreValue === 5 || compScoreValue === 5) {
+    if (playerScoreValue < 5 || compScoreValue < 5) {
         if (computerInput === userInput) {
             roundResult.textContent = "You Chose: " + userInput + " | Your Opponent Chose: " + computerInput;
             roundMessage.textContent = "It's a Tie!";
