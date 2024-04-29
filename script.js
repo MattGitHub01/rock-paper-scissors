@@ -59,7 +59,7 @@ function scoreManager(score) {
         playerScoreValue++;
         playerScore.textContent = playerScoreValue;
         winnerAnnounce.textContent = "You Win!";
-        playAgain.textContent = "Play Again?  || ";
+        playAgain.textContent = "Play Again?     ";
         playAgainBtn.textContent = "Play!";
         playAgain.appendChild(playAgainBtn);
         playAgainBtn.addEventListener("click", () => {
@@ -74,7 +74,7 @@ function scoreManager(score) {
         compScoreValue++;
         compScore.textContent = compScoreValue;
         winnerAnnounce.textContent = "You Lose!";
-        playAgain.textContent = "Play Again?  || ";
+        playAgain.textContent = "Play Again?     ";
         playAgainBtn.textContent = "Play!";
         playAgain.appendChild(playAgainBtn);
         playAgainBtn.addEventListener("click", () => {
